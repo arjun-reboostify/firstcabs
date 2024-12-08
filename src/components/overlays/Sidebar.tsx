@@ -16,7 +16,7 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-  { label: 'Fare Calculator', path: '/', emoji: '💬' },
+  { label: 'Fare Calculator', path: '/', emoji: '🖩' },
 
 ];
 
