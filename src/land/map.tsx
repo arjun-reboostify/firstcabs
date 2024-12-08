@@ -11,7 +11,7 @@ import {
 const VEHICLE_RATES = {
   petrol: { rate: 12, icon: Car, color: 'text-red-500' },
   diesel: { rate: 10, icon: Truck, color: 'text-gray-700' },
-  electric: { rate: 9, icon: Zap, color: 'text-blue-500' },
+  electric: { rate: 9, icon: Zap, color: 'text-yellow-500' },
   cng: { rate: 8, icon: Leaf, color: 'text-green-500' }
 };
 type VehicleType = 'petrol' | 'diesel' | 'electric' | 'cng';
@@ -142,7 +142,7 @@ const DelhiFareCalculator: React.FC = () => {
 
    <div className="flex-grow flex z-[50] items-center justify-center p-4">
         <div className="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden">
-          <div className="bg-blue-600 text-white p-4 text-center">
+          <div className="bg-yellow-600 text-white p-4 text-center">
             <h2 className="text-2xl font-bold">Delhi Transportation Fare Calculator</h2>
           </div>
 
@@ -160,8 +160,8 @@ const DelhiFareCalculator: React.FC = () => {
                       onClick={() => setVehicleType(type)}
                       className={`flex-1 p-3 rounded-lg transition-all duration-200 ${
                         vehicleType === type 
-                          ? 'bg-blue-100 border-2 border-blue-500' 
-                          : 'bg-gray-100 hover:bg-blue-50'
+                          ? 'bg-yellow-100 border-2 border-yellow-500' 
+                          : 'bg-gray-100 hover:bg-yellow-50'
                       }`}
                     >
                       <div className="flex flex-col items-center">
@@ -187,7 +187,7 @@ const DelhiFareCalculator: React.FC = () => {
                   <select
                     value={fromLocation}
                     onChange={(e) => setFromLocation(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   >
                     <option value="">Choose Starting Location</option>
                     {LOCATIONS.map(location => (
@@ -209,7 +209,7 @@ const DelhiFareCalculator: React.FC = () => {
                   <select
                     value={toLocation}
                     onChange={(e) => setToLocation(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-yellow-500"
                   >
                     <option value="">Choose Destination</option>
                     {LOCATIONS.map(location => (
@@ -225,10 +225,10 @@ const DelhiFareCalculator: React.FC = () => {
 
             {/* Fare Calculation Result */}
             {fromLocation && toLocation && (
-              <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+              <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
                 <div className="flex justify-between items-center mb-4">
                   <div className="flex items-center">
-                    <MapPin className="mr-2 text-blue-500" />
+                    <MapPin className="mr-2 text-yellow-500" />
                     <span className="font-medium">{fromLocation}</span>
                   </div>
                   <Navigation className="text-green-500" />
@@ -240,9 +240,9 @@ const DelhiFareCalculator: React.FC = () => {
                 
                 <div className="space-y-2">
                   <p className="text-sm text-gray-600">
-                    Distance: <span className="font-bold text-blue-700">{fareDetails.distance.toFixed(2)} km</span>
+                    Distance: <span className="font-bold text-yellow-700">{fareDetails.distance.toFixed(2)} km</span>
                   </p>
-                  <p className="text-3xl font-bold text-blue-800">
+                  <p className="text-3xl font-bold text-yellow-800">
                     ₹{fareDetails.fare.toFixed(2)}
                   </p>
                   <div className="text-4xl">{getFareEmoji()}</div>
