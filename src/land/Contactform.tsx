@@ -50,7 +50,7 @@ const ContactForm: React.FC = () => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 p-4"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 to-purple-100 p-4"
     >
       <motion.div 
         className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8"
@@ -69,7 +69,7 @@ const ContactForm: React.FC = () => {
               name="name" 
               id="name"
               required 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
               placeholder="Your Name"
             />
           </div>
@@ -83,7 +83,7 @@ const ContactForm: React.FC = () => {
               name="email" 
               id="email"
               required 
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
               placeholder="your.email@example.com"
             />
           </div>
@@ -97,7 +97,7 @@ const ContactForm: React.FC = () => {
               id="message"
               required 
               rows={4}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
               placeholder="Write your message here..."
             ></textarea>
           </div>
@@ -105,7 +105,7 @@ const ContactForm: React.FC = () => {
           <motion.button 
             type="submit" 
             disabled={isSubmitting}
-            className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-yellow-500 text-black py-3 rounded-md hover:bg-yellow-600 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

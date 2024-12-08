@@ -47,19 +47,42 @@ const NavBar = () => {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center space-x-3"
               >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 100 100" 
-                  className="w-10 h-10"
-                >
-                  <circle cx="50" cy="50" r="45" fill="#3B82F6" />
-                  <path 
-                    d="M30 50 Q50 30, 70 50 T110 50" 
-                    stroke="white" 
-                    strokeWidth="5" 
-                    fill="transparent" 
-                  />
-                </svg>
+                 <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="20"
+    viewBox="0 0 200 200"
+    style={{ backgroundColor: "yellow" }}
+  >
+    {/* Background */}
+    <rect width="200" height="200" fill="yellow" />
+    
+    {/* Letter F */}
+    <text
+      x="50"
+      y="100"
+      fontSize="80"
+      fontWeight="bold"
+      fill="black"
+      fontFamily="Arial, sans-serif"
+      textAnchor="middle"
+    >
+      F
+    </text>
+    
+    {/* Letter C */}
+    <text
+      x="150"
+      y="100"
+      fontSize="80"
+      fontWeight="bold"
+      fill="black"
+      fontFamily="Arial, sans-serif"
+      textAnchor="middle"
+    >
+      C
+    </text>
+  </svg>
                 <span className="text-xl font-bold text-gray-800">
                   FirstCabs.
                 </span>
@@ -114,19 +137,42 @@ const NavBar = () => {
                 whileTap={{ scale: 0.95 }}
                 className="fixed top-0 left-0 h-[5vh] justify-center items-center w-full bg-white/80 backdrop-blur-md flex gap-4 shadow-lg z-45 md:block"
               >
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  viewBox="0 0 100 100" 
-                  className="w-10 h-10"
-                >
-                  <circle cx="50" cy="50" r="45" fill="#3B82F6" />
-                  <path 
-                    d="M30 50 Q50 30, 70 50 T110 50" 
-                    stroke="white" 
-                    strokeWidth="5" 
-                    fill="transparent" 
-                  />
-                </svg>
+               <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="20"
+    viewBox="0 0 200 200"
+    style={{ backgroundColor: "yellow" }}
+  >
+    {/* Background */}
+    <rect width="200" height="200" fill="yellow" />
+    
+    {/* Letter F */}
+    <text
+      x="50"
+      y="100"
+      fontSize="80"
+      fontWeight="bold"
+      fill="black"
+      fontFamily="Arial, sans-serif"
+      textAnchor="middle"
+    >
+      F
+    </text>
+    
+    {/* Letter C */}
+    <text
+      x="150"
+      y="100"
+      fontSize="80"
+      fontWeight="bold"
+      fill="black"
+      fontFamily="Arial, sans-serif"
+      textAnchor="middle"
+    >
+      C
+    </text>
+  </svg>
                 <span className="text-xl font-bold text-gray-800">
                   First Cabs .
                 </span>
