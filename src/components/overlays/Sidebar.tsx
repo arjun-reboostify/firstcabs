@@ -124,7 +124,7 @@ const CompactResponsiveSidebar: React.FC = () => {
             exit={{ x: '100%', opacity: 0 }}
             transition={{ type: 'tween', duration: 0.3 }}
             className="fixed inset-y-0 right-0 w-72 
-                       bg-black/90 backdrop-blur-lg z-[60] 
+                       bg-black/50 backdrop-blur-lg z-[60] 
                        shadow-2xl rounded-l-xl flex flex-col 
                        touch-pan-y"
           >

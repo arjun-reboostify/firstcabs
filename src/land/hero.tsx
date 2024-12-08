@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import D from './assets/215922841-holiday-travel-series-colorful-abstract-art-vector-image-of-car-road-trip.jpg'
+
 // import { ReactComponent as HeroVisual } from './assets/phone.svg';
 const HeroSection: React.FC = () => {
   const [showHeading, setShowHeading] = useState(true);
@@ -24,7 +25,7 @@ const HeroSection: React.FC = () => {
             animate-fade-in transform transition-all duration-700 
             hover:scale-105 cursor-pointer"
           >
-            Innovative Solutions 
+           "First Cabs"
             <ArrowRight className="inline-block ml-3 text-blue-600 animate-bounce" />
           </h1>
         )}
@@ -38,8 +39,7 @@ const HeroSection: React.FC = () => {
               className="text-xl md:text-2xl lg:text-3xl italic text-gray-700 
               border-l-4 border-blue-500 pl-4"
             >
-              "Transforming challenges into opportunities through cutting-edge technology 
-              and creative problem-solving."
+              "Revolutionizing the way cab booking work."
             </blockquote>
           </div>
         )}
