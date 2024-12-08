@@ -128,7 +128,7 @@ const NavBar = () => {
                   />
                 </svg>
                 <span className="text-xl font-bold text-gray-800">
-                  VeryThought
+                  First Cabs .
                 </span>
               </motion.div>
         <AnimatePresence>
