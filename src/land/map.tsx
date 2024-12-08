@@ -249,7 +249,7 @@ const DelhiFareCalculator: React.FC = () => {
       <div id="map" className="h-[50vh] border rounded-lg shadow-md"></div>
       
       <div className="flex-grow flex z-[50] items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden">
+        <div className="  bg-white rounded-xl shadow-2xl overflow-hidden">
           <div className="bg-yellow-600 text-white p-4 text-center">
             <h2 className="text-2xl font-bold">Delhi Transportation Fare Calculator</h2>
           </div>
