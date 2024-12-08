@@ -131,11 +131,49 @@ const CompactResponsiveSidebar: React.FC = () => {
             {/* Header */}
             <div className="p-4 flex items-center justify-between border-b border-gray-800">
               <div className="flex items-center gap-3">
-                <img
+                
+              <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="20"
+    viewBox="0 0 200 200"
+    style={{ backgroundColor: "yellow" }}
+  >
+    {/* Background */}
+    <rect width="200" height="200" fill="yellow" />
+    
+    {/* Letter F */}
+    <text
+      x="50"
+      y="100"
+      fontSize="80"
+      fontWeight="bold"
+      fill="black"
+      fontFamily="Arial, sans-serif"
+      textAnchor="middle"
+    >
+      F
+    </text>
+    
+    {/* Letter C */}
+    <text
+      x="150"
+      y="100"
+      fontSize="80"
+      fontWeight="bold"
+      fill="black"
+      fontFamily="Arial, sans-serif"
+      textAnchor="middle"
+    >
+      C
+    </text>
+  </svg>
+                
+                {/* <img
                   className="w-8 h-8 object-contain"
                   src="/notes.svg"
                   alt="logo"
-                />
+                /> */}
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 
                   bg-clip-text text-transparent">
                   First Cabs
