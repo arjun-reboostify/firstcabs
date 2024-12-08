@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import  { useEffect } from 'react';
-import { Car, Truck, Zap, Leaf, MapPin, Navigation } from 'lucide-react';
+import { Car, Truck, Zap, Leaf, MapPin, Navigation,ChevronDown } from 'lucide-react';
 import Side from '../components/overlays/Sidebar'
 import { 
   useJsApiLoader, 
@@ -14,7 +14,7 @@ const VEHICLE_RATES = {
   electric: { rate: 9, icon: Zap, color: 'text-blue-500' },
   cng: { rate: 8, icon: Leaf, color: 'text-green-500' }
 };
-
+type VehicleType = 'petrol' | 'diesel' | 'electric' | 'cng';
 // Location data with enhanced geographical context
 const LOCATIONS = [
   // Historical/Tourist Locations (from original artifact)
@@ -132,113 +132,126 @@ const DelhiFareCalculator: React.FC = () => {
       </div>
     );
   }
+   
   return (<><Side />
   {/* <div className='' */}
-   <div id="map" className="h-[30vh] border rounded-lg shadow-md"></div>
+   <div id="map" className="h-[50vh] border rounded-lg shadow-md"></div>
 
 
 
 
-    <div className="w-md left-[20%] right-[20%] h-[70vh] fixed bottom-0  justify-center items-center z-[50] mx-auto p-4 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4  text-center">
-        Delhi Transportation Fare Calculator
-      </h2>
+   <div className="flex-grow flex z-[50] items-center justify-center p-4">
+        <div className="w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden">
+          <div className="bg-blue-600 text-white p-4 text-center">
+            <h2 className="text-2xl font-bold">Delhi Transportation Fare Calculator</h2>
+          </div>
 
-      {/* Vehicle Type Selection */}
-      <div className="mb-4 ">
-        <label className="block text-sm font-medium text-gray-700">
-          Select Vehicle Type
-        </label>
-        <div className="flex justify-between mt-1">
-          {(Object.keys(VEHICLE_RATES) as Array<keyof typeof VEHICLE_RATES>).map(type => (
-            <button
-              key={type}
-              onClick={() => setVehicleType(type)}
-              className={`p-2 rounded-full ${
-                vehicleType === type ? 'bg-blue-100' : 'bg-gray-100'
-              } hover:bg-blue-200 transition`}
-            >
-              <div className="flex flex-col items-center">
-                <VehicleIcon 
-                  className={`w-8 h-8 ${VEHICLE_RATES[type].color}`} 
-                />
-                <span className="text-xs capitalize mt-1">{type}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* From Location Selection */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">
-          From Location
-        </label>
-        <select
-          value={fromLocation}
-          onChange={(e) => setFromLocation(e.target.value)}
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-        >
-          <option value="">Choose Starting Location</option>
-          {LOCATIONS.map(location => (
-            <option key={location.name} value={location.name}>
-              {location.name} ({location.region})
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* To Location Selection */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">
-          To Location
-        </label>
-        <select
-          value={toLocation}
-          onChange={(e) => setToLocation(e.target.value)}
-          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-        >
-          <option value="">Choose Destination</option>
-          {LOCATIONS.map(location => (
-            <option key={location.name} value={location.name}>
-              {location.name} ({location.region})
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Fare Calculation Result */}
-      <div className="bg-gray-100 p-4 rounded-lg text-center">
-        <div className="flex justify-center items-center mb-2">
-          <VehicleIcon className={`w-10 h-10 mr-2 ${VEHICLE_RATES[vehicleType].color}`} />
-          <h3 className="text-xl font-semibold">Estimated Journey Details</h3>
-        </div>
-        {fromLocation && toLocation ? (
-          <div>
-            <div className="flex justify-between mb-2">
-              <div className="flex items-center">
-                <MapPin className="mr-2 text-blue-500" />
-                <span>{fromLocation} ({fareDetails.fromRegion})</span>
-              </div>
-              <Navigation className="text-green-500" />
-              <div className="flex items-center">
-                <MapPin className="mr-2 text-red-500" />
-                <span>{toLocation} ({fareDetails.toRegion})</span>
+          {/* Scrollable Content */}
+          <div className="p-4 max-h-[70vh] overflow-y-auto">
+            {/* Vehicle Type Selection */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-gray-700 mb-3">Select Vehicle Type</h3>
+              <div className="flex justify-between space-x-2">
+                {(Object.keys(VEHICLE_RATES) as VehicleType[]).map(type => {
+                  const VehicleIcon = VEHICLE_RATES[type].icon;
+                  return (
+                    <button
+                      key={type}
+                      onClick={() => setVehicleType(type)}
+                      className={`flex-1 p-3 rounded-lg transition-all duration-200 ${
+                        vehicleType === type 
+                          ? 'bg-blue-100 border-2 border-blue-500' 
+                          : 'bg-gray-100 hover:bg-blue-50'
+                      }`}
+                    >
+                      <div className="flex flex-col items-center">
+                        <VehicleIcon 
+                          className={`w-8 h-8 ${VEHICLE_RATES[type].color}`} 
+                        />
+                        <span className="text-xs uppercase mt-2">{type}</span>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
-            <p className="text-xl font-bold">
-              Distance: {fareDetails.distance.toFixed(2)} km
-            </p>
-            <p className="text-3xl font-bold text-blue-600">
-              ₹{fareDetails.fare.toFixed(2)}
-            </p>
-            <div className="text-4xl mt-2">{getFareEmoji()}</div>
+
+            {/* Location Selections */}
+            <div className="space-y-4">
+              {/* From Location */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  From Location
+                </label>
+                <div className="relative">
+                  <select
+                    value={fromLocation}
+                    onChange={(e) => setFromLocation(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Choose Starting Location</option>
+                    {LOCATIONS.map(location => (
+                      <option key={location.name} value={location.name}>
+                        {location.name} ({location.region})
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                </div>
+              </div>
+
+              {/* To Location */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  To Location
+                </label>
+                <div className="relative">
+                  <select
+                    value={toLocation}
+                    onChange={(e) => setToLocation(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Choose Destination</option>
+                    {LOCATIONS.map(location => (
+                      <option key={location.name} value={location.name}>
+                        {location.name} ({location.region})
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                </div>
+              </div>
+            </div>
+
+            {/* Fare Calculation Result */}
+            {fromLocation && toLocation && (
+              <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                <div className="flex justify-between items-center mb-4">
+                  <div className="flex items-center">
+                    <MapPin className="mr-2 text-blue-500" />
+                    <span className="font-medium">{fromLocation}</span>
+                  </div>
+                  <Navigation className="text-green-500" />
+                  <div className="flex items-center">
+                    <MapPin className="mr-2 text-red-500" />
+                    <span className="font-medium">{toLocation}</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <p className="text-sm text-gray-600">
+                    Distance: <span className="font-bold text-blue-700">{fareDetails.distance.toFixed(2)} km</span>
+                  </p>
+                  <p className="text-3xl font-bold text-blue-800">
+                    ₹{fareDetails.fare.toFixed(2)}
+                  </p>
+                  <div className="text-4xl">{getFareEmoji()}</div>
+                </div>
+              </div>
+            )}
           </div>
-        ) : (
-          <p className="text-gray-500">Select locations to calculate fare</p>
-        )}
-      </div>
-    </div></>
+        </div>
+      </div></>
   );
 };
 
